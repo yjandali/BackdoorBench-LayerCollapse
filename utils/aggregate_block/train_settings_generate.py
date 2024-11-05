@@ -45,6 +45,9 @@ def argparser_opt_scheduler(model, args):
             rho = args.rho, #0.95,
             eps = args.eps, #1e-07,
         )
+    elif args.client_optimizer == "AdamW":
+        optimizer = torch.optim.AdamW(filter(lambda p: p.requires_grad, model.parameters()),
+                                    lr=args.lr)
     else:
         optimizer = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()),
                                      lr=args.lr,
@@ -74,6 +77,9 @@ def argparser_opt_scheduler(model, args):
                 'factor':args.ReduceLROnPlateau_factor
                } if 'ReduceLROnPlateau_factor' in args.__dict__ else {})
         )
+    elif args.lr_scheduler == 'ExponentialLR':
+        scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=args.ExponentialLR_gamma)
+        print(scheduler, args.ExponentialLR_gamma)
     else:
         scheduler = None
 
