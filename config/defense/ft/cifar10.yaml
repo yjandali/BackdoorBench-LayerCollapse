@@ -10,20 +10,22 @@ log:
 dataset_path: './data'
 dataset: 'cifar10'
 
-epochs: 100
-batch_size: 256
-num_workers: 4
-lr: 0.01
-lr_scheduler: CosineAnnealingLR
-model: 'preactresnet18'
+device: 'cuda:1'
 
-client_optimizer: 'sgd'
-sgd_momentum: 0.9 
+epochs: 100
+batch_size: 128
+num_workers: 4
+lr: 0.0001
+lr_scheduler: CosineAnnealingLR
+model: vit_b_16
+
+client_optimizer: 'AdamW'
+sgd_momentum: 0.75 
 wd: 5.0e-4
 frequency_save: 0
 
 random_seed: 0
 
-ratio: 0.05
+ratio: 0.01
 index: 
 
