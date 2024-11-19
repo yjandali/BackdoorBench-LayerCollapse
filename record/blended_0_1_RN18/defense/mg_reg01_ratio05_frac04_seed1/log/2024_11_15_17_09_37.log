@@ -1,0 +1,420 @@
+2024-11-15:17:09:37 [INFO    ] [MG.py:179] {'amp': True,
+ 'batch_size': 128,
+ 'checkpoint_load': None,
+ 'checkpoint_save': 'record/blended_0_1_RN18/defense/mg_reg01_ratio05_frac04_seed1/checkpoint/',
+ 'client_optimizer': 'sgd',
+ 'dataset': 'cifar10',
+ 'dataset_path': './data/cifar10',
+ 'device': 'cuda:0',
+ 'epochs': 20,
+ 'experiment_name': 'mg_reg01_ratio05_frac04_seed1',
+ 'fraction': 0.4,
+ 'frequency_save': 0,
+ 'img_size': (32, 32, 3),
+ 'index': None,
+ 'input_channel': 3,
+ 'input_height': 32,
+ 'input_width': 32,
+ 'log': 'record/blended_0_1_RN18/defense/mg_reg01_ratio05_frac04_seed1/log/',
+ 'lr': 0.01,
+ 'lr_scheduler': 'CosineAnnealingLR',
+ 'model': 'preactresnet18',
+ 'non_blocking': True,
+ 'num_classes': 10,
+ 'num_workers': 4,
+ 'pin_memory': True,
+ 'prefetch': False,
+ 'random_seed': 1,
+ 'ratio': 0.05,
+ 'reg_strength': 1.0,
+ 'result_file': 'blended_0_1_RN18',
+ 'save_path': 'record/blended_0_1_RN18/defense/mg_reg01_ratio05_frac04_seed1/',
+ 'sgd_momentum': 0.9,
+ 'terminal_info': ['./defense/MG.py',
+                   '--result_file',
+                   'blended_0_1_RN18',
+                   '--yaml_path',
+                   './config/defense/MG/cifar10.yaml',
+                   '--dataset',
+                   'cifar10',
+                   '--fraction',
+                   '0.4',
+                   '--reg_strength',
+                   '1',
+                   '--ratio',
+                   '0.05',
+                   '--experiment_name',
+                   'mg_reg01_ratio05_frac04_seed1',
+                   '--random_seed',
+                   '1',
+                   '--model',
+                   'preactresnet18'],
+ 'wd': 0.0005,
+ 'yaml_path': './config/defense/MG/cifar10.yaml'}
+2024-11-15:17:09:37 [INFO    ] [MG.py:182] {'git hash': None,
+ 'last 3 log': 'commit f2ca5f8f4b58e07a407dd65ca217f11673aba63d\n'
+               'Author: soheilzi <soheil.zibakhsh@gmail.com>\n'
+               'Date:   Tue Nov 12 09:46:15 2024 -0800\n'
+               '\n'
+               '    added the adverserial test, added the trojan tests with '
+               'MG\n'
+               '\n'
+               'commit afd704e7564791ddc0ae120c7d2e1581bd3a4f80\n'
+               'Author: Yaman <yamanjandali@gmail.com>\n'
+               'Date:   Fri Nov 8 16:15:34 2024 -0800\n'
+               '\n'
+               '    removed added files\n'
+               '\n'
+               'commit 9bc0c704e4be5beff4562e38a15f0b4e070bb433\n'
+               'Author: Yaman <yamanjandali@gmail.com>\n'
+               'Date:   Tue Nov 5 10:24:03 2024 -0800\n'
+               '\n'
+               '    updated train_settings_generate.py file',
+ 'status': 'On branch main\n'
+           "Your branch is up to date with 'origin/main'.\n"
+           '\n'
+           'Changes not staged for commit:\n'
+           '  (use "git add <file>..." to update what will be committed)\n'
+           '  (use "git restore <file>..." to discard changes in working '
+           'directory)\n'
+           '\tmodified:   config/defense/MG/cifar10.yaml\n'
+           '\tmodified:   config/defense/fp/cifar10.yaml\n'
+           '\tmodified:   config/defense/ft-sam/cifar10.yaml\n'
+           '\tmodified:   config/defense/nc/cifar10.yaml\n'
+           '\tmodified:   defense/MG.py\n'
+           '\tmodified:   defense/MG_utils.py\n'
+           '\tmodified:   defense/collapsible_MLP.py\n'
+           '\tmodified:   test_model.ipynb\n'
+           '\n'
+           'Untracked files:\n'
+           '  (use "git add <file>..." to include in what will be committed)\n'
+           '\tdefense/MG_resnet.py\n'
+           '\trecord/badnet_0_1_RN18/\n'
+           '\trecord/badnet_0_1_ViT/\n'
+           '\trecord/blended_0_1_RN18/\n'
+           '\trecord/blended_0_1_ViT/\n'
+           '\trecord/wanet_0_1_RN18/\n'
+           '\trecord/wanet_0_1_ViT/\n'
+           '\n'
+           'no changes added to commit (use "git add" and/or "git commit -a")'}
+2024-11-15:17:09:42 [INFO    ] [bd_dataset_v2.py:133] save file format is .png
+2024-11-15:17:09:42 [INFO    ] [trainer_cls.py:985] Do NOT set the settings/parameters attr manually after you start training!
+You may break the relationship between them.
+2024-11-15:17:09:42 [INFO    ] [trainer_cls.py:1043] ('epoch_now:0, '
+ 'batch_now:0self.amp:True,self.criterion:functools.partial(<function '
+ 'criterion_function at 0x7f86b7cd9c10>, fraction=0.4, '
+ 'reg_strength=1.0),self.optimizer:SGD (\n'
+ 'Parameter Group 0\n'
+ '    dampening: 0\n'
+ '    initial_lr: 0.01\n'
+ '    lr: 0.01\n'
+ '    maximize: False\n'
+ '    momentum: 0.9\n'
+ '    nesterov: False\n'
+ '    weight_decay: 0.0005\n'
+ "),self.scheduler:{'T_max': 100, 'eta_min': 0, 'base_lrs': [0.01], "
+ "'last_epoch': 0, '_step_count': 1, 'verbose': False, "
+ "'_get_lr_called_within_step': False, '_last_lr': "
+ "[0.01]},self.scaler:{'scale': 65536.0, 'growth_factor': 2.0, "
+ "'backoff_factor': 0.5, 'growth_interval': 2000, '_growth_tracker': 0})")
+2024-11-15:17:09:43 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.9127941131591797 s
+2024-11-15:17:09:43 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:09:43 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:09:45 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 31.95928627336529,
+ 'clean_test_loss_avg_over_batch': 3.4235034803800946,
+ 'epoch': 0,
+ 'test_acc': 0.6624,
+ 'test_asr': 0.00011111111111111112,
+ 'test_ra': 0.25733333333333336,
+ 'train_acc': 0.8892,
+ 'train_acc_clean_only': 0.8892,
+ 'train_epoch_loss_avg_over_batch': 1.0957231476902962}
+2024-11-15:17:09:45 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:09:45 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:09:46 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.7851920127868652 s
+2024-11-15:17:09:46 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:09:46 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:09:48 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 17.846451450401627,
+ 'clean_test_loss_avg_over_batch': 1.3935441216336022,
+ 'epoch': 1,
+ 'test_acc': 0.7419,
+ 'test_asr': 0.01877777777777778,
+ 'test_ra': 0.48055555555555557,
+ 'train_acc': 0.8684,
+ 'train_acc_clean_only': 0.8684,
+ 'train_epoch_loss_avg_over_batch': 0.5185863636434078}
+2024-11-15:17:09:48 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:09:48 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:09:49 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.7701523303985596 s
+2024-11-15:17:09:49 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:09:49 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:09:51 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 22.284557584305883,
+ 'clean_test_loss_avg_over_batch': 1.506408284736585,
+ 'epoch': 2,
+ 'test_acc': 0.7232,
+ 'test_asr': 0.0015555555555555555,
+ 'test_ra': 0.42633333333333334,
+ 'train_acc': 0.9,
+ 'train_acc_clean_only': 0.9,
+ 'train_epoch_loss_avg_over_batch': 0.3321004457771778}
+2024-11-15:17:09:51 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:09:51 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:09:52 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.7644374370574951 s
+2024-11-15:17:09:52 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:09:52 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:09:54 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 6.461220553223516,
+ 'clean_test_loss_avg_over_batch': 1.1727188546446305,
+ 'epoch': 3,
+ 'test_acc': 0.7585,
+ 'test_asr': 0.2588888888888889,
+ 'test_ra': 0.36944444444444446,
+ 'train_acc': 0.9448,
+ 'train_acc_clean_only': 0.9448,
+ 'train_epoch_loss_avg_over_batch': 0.1763284768909216}
+2024-11-15:17:09:54 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:09:54 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:09:55 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.7769386768341064 s
+2024-11-15:17:09:55 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:09:55 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:09:57 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 15.514680177393094,
+ 'clean_test_loss_avg_over_batch': 0.6207151674441521,
+ 'epoch': 4,
+ 'test_acc': 0.8407,
+ 'test_asr': 0.0071111111111111115,
+ 'test_ra': 0.6271111111111111,
+ 'train_acc': 0.9604,
+ 'train_acc_clean_only': 0.9604,
+ 'train_epoch_loss_avg_over_batch': 0.10233293306082487}
+2024-11-15:17:09:57 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:09:57 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:09:58 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.7790045738220215 s
+2024-11-15:17:09:58 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:09:58 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:00 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 12.70656562858904,
+ 'clean_test_loss_avg_over_batch': 0.6615994878207581,
+ 'epoch': 5,
+ 'test_acc': 0.8382,
+ 'test_asr': 0.032,
+ 'test_ra': 0.5846666666666667,
+ 'train_acc': 0.9792,
+ 'train_acc_clean_only': 0.9792,
+ 'train_epoch_loss_avg_over_batch': 0.0651535052806139}
+2024-11-15:17:10:00 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:10:00 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:10:01 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.7833526134490967 s
+2024-11-15:17:10:01 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:01 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:03 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 10.625723180636554,
+ 'clean_test_loss_avg_over_batch': 0.5807692437798162,
+ 'epoch': 6,
+ 'test_acc': 0.8617,
+ 'test_asr': 0.07144444444444445,
+ 'test_ra': 0.5837777777777777,
+ 'train_acc': 0.9852,
+ 'train_acc_clean_only': 0.9852,
+ 'train_epoch_loss_avg_over_batch': 0.04700607620179653}
+2024-11-15:17:10:03 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:10:03 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:10:04 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.775048017501831 s
+2024-11-15:17:10:04 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:04 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:06 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 8.232684894346855,
+ 'clean_test_loss_avg_over_batch': 0.5343563449156435,
+ 'epoch': 7,
+ 'test_acc': 0.8757,
+ 'test_asr': 0.141,
+ 'test_ra': 0.5547777777777778,
+ 'train_acc': 0.9904,
+ 'train_acc_clean_only': 0.9904,
+ 'train_epoch_loss_avg_over_batch': 0.03247853815555572}
+2024-11-15:17:10:06 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:10:06 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:10:07 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.7903914451599121 s
+2024-11-15:17:10:07 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:07 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:09 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 10.642896585061516,
+ 'clean_test_loss_avg_over_batch': 0.5422666778292837,
+ 'epoch': 8,
+ 'test_acc': 0.8702,
+ 'test_asr': 0.07544444444444444,
+ 'test_ra': 0.6072222222222222,
+ 'train_acc': 0.9928,
+ 'train_acc_clean_only': 0.9928,
+ 'train_epoch_loss_avg_over_batch': 0.025057670823298395}
+2024-11-15:17:10:10 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:10:10 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:10:10 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.7685773372650146 s
+2024-11-15:17:10:10 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:10 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:12 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 11.62417118985888,
+ 'clean_test_loss_avg_over_batch': 0.5904479200326944,
+ 'epoch': 9,
+ 'test_acc': 0.8692,
+ 'test_asr': 0.07977777777777778,
+ 'test_ra': 0.6013333333333334,
+ 'train_acc': 0.992,
+ 'train_acc_clean_only': 0.992,
+ 'train_epoch_loss_avg_over_batch': 0.027892738906666638}
+2024-11-15:17:10:13 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:10:13 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:10:14 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.7689495086669922 s
+2024-11-15:17:10:14 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:14 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:16 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 13.382375905211543,
+ 'clean_test_loss_avg_over_batch': 0.688239505019369,
+ 'epoch': 10,
+ 'test_acc': 0.8465,
+ 'test_asr': 0.015222222222222222,
+ 'test_ra': 0.6104444444444445,
+ 'train_acc': 0.9852,
+ 'train_acc_clean_only': 0.9852,
+ 'train_epoch_loss_avg_over_batch': 0.03812979848589748}
+2024-11-15:17:10:16 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:10:16 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:10:17 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.7862484455108643 s
+2024-11-15:17:10:17 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:17 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:19 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 12.027393515680878,
+ 'clean_test_loss_avg_over_batch': 0.673750835506222,
+ 'epoch': 11,
+ 'test_acc': 0.8582,
+ 'test_asr': 0.06877777777777777,
+ 'test_ra': 0.6186666666666667,
+ 'train_acc': 0.9892,
+ 'train_acc_clean_only': 0.9892,
+ 'train_epoch_loss_avg_over_batch': 0.03308869821485132}
+2024-11-15:17:10:19 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:10:19 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:10:20 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.7832920551300049 s
+2024-11-15:17:10:20 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:20 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:22 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 13.984152068554515,
+ 'clean_test_loss_avg_over_batch': 0.6186747992340522,
+ 'epoch': 12,
+ 'test_acc': 0.8608,
+ 'test_asr': 0.027555555555555555,
+ 'test_ra': 0.5973333333333334,
+ 'train_acc': 0.99,
+ 'train_acc_clean_only': 0.99,
+ 'train_epoch_loss_avg_over_batch': 0.029692073725163935}
+2024-11-15:17:10:22 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:10:22 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:10:23 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.7738749980926514 s
+2024-11-15:17:10:23 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:23 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:25 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 12.446248726106026,
+ 'clean_test_loss_avg_over_batch': 0.6399097725560393,
+ 'epoch': 13,
+ 'test_acc': 0.8663,
+ 'test_asr': 0.03711111111111111,
+ 'test_ra': 0.6335555555555555,
+ 'train_acc': 0.996,
+ 'train_acc_clean_only': 0.996,
+ 'train_epoch_loss_avg_over_batch': 0.01825250079855323}
+2024-11-15:17:10:25 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:10:25 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:10:26 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.7905943393707275 s
+2024-11-15:17:10:26 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:26 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:28 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 13.151384702870544,
+ 'clean_test_loss_avg_over_batch': 0.5537869888770429,
+ 'epoch': 14,
+ 'test_acc': 0.8758,
+ 'test_asr': 0.033666666666666664,
+ 'test_ra': 0.6517777777777778,
+ 'train_acc': 0.996,
+ 'train_acc_clean_only': 0.996,
+ 'train_epoch_loss_avg_over_batch': 0.014820469851838425}
+2024-11-15:17:10:28 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:10:28 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:10:29 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.7763903141021729 s
+2024-11-15:17:10:29 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:29 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:31 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 13.215965996325856,
+ 'clean_test_loss_avg_over_batch': 0.5492144870229915,
+ 'epoch': 15,
+ 'test_acc': 0.8783,
+ 'test_asr': 0.034777777777777776,
+ 'test_ra': 0.6453333333333333,
+ 'train_acc': 0.9972,
+ 'train_acc_clean_only': 0.9972,
+ 'train_epoch_loss_avg_over_batch': 0.011530883668456227}
+2024-11-15:17:10:31 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:10:31 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:10:32 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.7888100147247314 s
+2024-11-15:17:10:32 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:32 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:34 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 12.68938083380041,
+ 'clean_test_loss_avg_over_batch': 0.5504807983495625,
+ 'epoch': 16,
+ 'test_acc': 0.8758,
+ 'test_asr': 0.05511111111111111,
+ 'test_ra': 0.6345555555555555,
+ 'train_acc': 0.9992,
+ 'train_acc_clean_only': 0.9992,
+ 'train_epoch_loss_avg_over_batch': 0.0074989772459957745}
+2024-11-15:17:10:34 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:10:34 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:10:35 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.7947573661804199 s
+2024-11-15:17:10:35 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:35 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:37 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 11.50243563047597,
+ 'clean_test_loss_avg_over_batch': 0.5515274973232535,
+ 'epoch': 17,
+ 'test_acc': 0.876,
+ 'test_asr': 0.06666666666666667,
+ 'test_ra': 0.6196666666666667,
+ 'train_acc': 0.9988,
+ 'train_acc_clean_only': 0.9988,
+ 'train_epoch_loss_avg_over_batch': 0.005296087032184005}
+2024-11-15:17:10:38 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:10:38 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:10:38 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.7963268756866455 s
+2024-11-15:17:10:38 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:38 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:40 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 13.424944743304186,
+ 'clean_test_loss_avg_over_batch': 0.5512701359730733,
+ 'epoch': 18,
+ 'test_acc': 0.8791,
+ 'test_asr': 0.03922222222222222,
+ 'test_ra': 0.6636666666666666,
+ 'train_acc': 0.9976,
+ 'train_acc_clean_only': 0.9976,
+ 'train_epoch_loss_avg_over_batch': 0.008092400268651545}
+2024-11-15:17:10:41 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:10:41 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:10:42 [INFO    ] [trainer_cls.py:1820] one epoch training part done, use time = 0.7884981632232666 s
+2024-11-15:17:10:42 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:42 [WARNING ] [trainer_cls.py:597] zero len array in func all_acc(), return None!
+2024-11-15:17:10:44 [INFO    ] [trainer_cls.py:68] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 13.085670377167178,
+ 'clean_test_loss_avg_over_batch': 0.5415055459435982,
+ 'epoch': 19,
+ 'test_acc': 0.8824,
+ 'test_asr': 0.037333333333333336,
+ 'test_ra': 0.6503333333333333,
+ 'train_acc': 0.9984,
+ 'train_acc_clean_only': 0.9984,
+ 'train_epoch_loss_avg_over_batch': 0.008707189190317877}
+2024-11-15:17:10:44 [WARNING ] [trainer_cls.py:929] train_asr_list contains None, or len not match
+2024-11-15:17:10:44 [WARNING ] [trainer_cls.py:933] train_ra_list contains None, or len not match
+2024-11-15:17:10:44 [INFO    ] [save_load_attack.py:176] saving...

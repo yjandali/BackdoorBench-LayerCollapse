@@ -1,0 +1,4 @@
+,epoch,batch,train_epoch_loss_avg_over_batch,train_acc,clean_test_loss_avg_over_batch,bd_test_loss_avg_over_batch,test_acc,test_asr,test_ra
+last,19,12,0.0009019413701025769,1.0,0.13268703324720263,6.879742503166199,0.9676,0.0026666666666666666,0.9677777777777777
+valid_max,19,12,0.15535440606375536,1.0,0.14702183110639452,6.891500314076741,0.9684,0.019777777777777776,0.968
+exist_nan_value,False,False,False,False,False,False,False,False,False

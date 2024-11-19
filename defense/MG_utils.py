@@ -22,13 +22,14 @@ from torch.nn.parallel import DistributedDataParallel as DDP
 import os
 import torch.multiprocessing as mp
 
-from ..defense.collapsible_MLP import CollapsibleMlp
+from defense.collapsible_MLP import CollapsibleMlp, CollapsiblePreActBlock
+from models.preact_resnet import PreActBlock
 
 import LiveTune as lt
 
 
 MLPBLOCK_INSTANCE = models.vision_transformer.MLPBlock
-
+PREACT_INSTANCE = PreActBlock
 
 
 def get_sparsity(tensor: torch.Tensor) -> float:
@@ -78,7 +79,7 @@ def get_model_linear_loss(model, fraction=1.0):
     linear_loss = 0
     num_mlp_layers = len(list(model.named_modules()))
     for name, module in list(model.named_modules())[::-1][:int(num_mlp_layers * fraction)]:
-        if isinstance(module, CollapsibleMlp):
+        if isinstance(module, CollapsibleMlp) or isinstance(module, CollapsiblePreActBlock):
             linear_loss += module.linear_loss()
     return linear_loss
 
@@ -90,6 +91,8 @@ def get_model_collapsible_slopes(model, fraction=1.0):
                 print(name, 1)
             else:
                 print(name, module.act.weight.item())
+        if isinstance(module, CollapsiblePreActBlock):
+            print(name, module.act2.weight.item())
 
 def collapse_model(model, fraction=1.0, threshold=0.05, device=None):
     num_mlp_layers = len(list(model.named_modules()))
@@ -98,7 +101,6 @@ def collapse_model(model, fraction=1.0, threshold=0.05, device=None):
             print("Collapsing layer {}".format(name))
             module.collapse(threshold=threshold)
             
-
 def change_module(model, name, module):
     name_list = name.split(".")
     if len(name_list) == 1:
@@ -127,5 +129,23 @@ def get_collapsible_model(model, fraction=1.0, device=None):
 
 
 def criterion_function(output, target, model=None, reg_strength=0.1,fraction=1.0):
-    # get_model_collapsible_slopes(model, fraction=fraction)
+    get_model_collapsible_slopes(model, fraction=fraction)
     return nn.CrossEntropyLoss()(output, target) + get_model_linear_loss(model, fraction=fraction) * reg_strength
+
+
+def get_collapsible_model_preactresnet(model, fraction=1.0, device=None):
+    num_mlp_layers = len(list(model.named_modules()))
+    copy_model = copy.deepcopy(model).to(device)
+    for name, module in list(copy_model.named_modules())[::-1][:int(num_mlp_layers * fraction)]:
+        if isinstance(module, PREACT_INSTANCE):
+            print("Collapsing layer {}".format(name))
+            in_planes = module.conv1.in_channels
+            plains = module.conv1.out_channels
+            stride = module.conv1.stride
+            collapsiblePreActBlock = CollapsiblePreActBlock(in_planes, plains, stride)
+            collapsiblePreActBlock.load_from_preactblock(module)
+            if device is not None:
+                collapsiblePreActBlock.to(device)
+            change_module(copy_model, name, collapsiblePreActBlock)
+    return copy_model.to(device)
+

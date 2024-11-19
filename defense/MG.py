@@ -35,7 +35,7 @@ from utils.aggregate_block.dataset_and_transform_generate import get_input_shape
 from utils.save_load_attack import load_attack_result, save_defense_result
 from utils.bd_dataset_v2 import prepro_cls_DatasetBD_v2
 
-from MG_utils import get_collapsible_model, collapse_model, criterion_function
+from MG_utils import get_collapsible_model, collapse_model, criterion_function, get_collapsible_model_preactresnet
 
 from functools import partial
 
@@ -97,6 +97,7 @@ class ft(defense):
 
     def add_arguments(parser):
         parser.add_argument('--device', type=str, help='cuda, cpu')
+        # parser.add_argument('--random_seed', type=int, help='random seed')
         parser.add_argument("-pm","--pin_memory", type=lambda x: str(x) in ['True', 'true', '1'], help = "dataloader pin_memory")
         parser.add_argument("-nb","--non_blocking", type=lambda x: str(x) in ['True', 'true', '1'], help = ".to(), set the non_blocking = ?")
         parser.add_argument("-pf", '--prefetch', type=lambda x: str(x) in ['True', 'true', '1'], help='use prefetch')
@@ -134,10 +135,11 @@ class ft(defense):
 
         parser.add_argument('--fraction', type=float, help='fraction of the model to collapse')
         parser.add_argument('--reg_strength', type=float, help='regularization strength for collapsing')
+        parser.add_argument('--experiment_name', type=str, help='experiment name', default='MG')
 
     def set_result(self, result_file):
         attack_file = 'record/' + result_file
-        save_path = 'record/' + result_file + '/defense/ft/'
+        save_path = 'record/' + result_file + '/defense/' + self.args.experiment_name + '/'
         if not (os.path.exists(save_path)):
             os.makedirs(save_path)
         # assert(os.path.exists(save_path))    
@@ -197,6 +199,8 @@ class ft(defense):
         model = generate_cls_model(self.args.model,self.args.num_classes)
         model.load_state_dict(self.result['model'])
 
+        if self.args.model == 'preactresnet18' or self.args.model == 'preactresnet34' or self.args.model == 'preactresnet50':
+            model = get_collapsible_model_preactresnet(model, fraction=self.args.fraction)
         model = get_collapsible_model(model, fraction=self.args.fraction)
 
         if "," in self.device:
@@ -274,7 +278,7 @@ class ft(defense):
             device=self.args.device,
             frequency_save=args.frequency_save,
             save_folder_path=args.save_path,
-            save_prefix='ft',
+            save_prefix=args.experiment_name,
             amp=args.amp,
             prefetch=args.prefetch,
             prefetch_transform_attr_name="ori_image_transform_in_loading", # since we use the preprocess_bd_dataset

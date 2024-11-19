@@ -1,0 +1,314 @@
+2024-11-14:14:03:47 [INFO    ] [ft.py:170] {'amp': True,
+ 'batch_size': 128,
+ 'checkpoint_load': None,
+ 'checkpoint_save': 'record/blended_0_1_ViT/defense/ft/checkpoint/',
+ 'client_optimizer': 'AdamW',
+ 'dataset': 'cifar10',
+ 'dataset_path': './data/cifar10',
+ 'device': 'cuda:2',
+ 'epochs': 20,
+ 'frequency_save': 0,
+ 'img_size': (32, 32, 3),
+ 'index': None,
+ 'input_channel': 3,
+ 'input_height': 32,
+ 'input_width': 32,
+ 'log': 'record/blended_0_1_ViT/defense/ft/log/',
+ 'lr': 0.0001,
+ 'lr_scheduler': 'CosineAnnealingLR',
+ 'model': 'vit_b_16',
+ 'non_blocking': True,
+ 'num_classes': 10,
+ 'num_workers': 4,
+ 'pin_memory': True,
+ 'prefetch': False,
+ 'random_seed': 0,
+ 'ratio': 0.05,
+ 'result_file': 'blended_0_1_ViT',
+ 'save_path': 'record/blended_0_1_ViT/defense/ft/',
+ 'sgd_momentum': 0.75,
+ 'terminal_info': ['./defense/ft.py',
+                   '--result_file',
+                   'blended_0_1_ViT',
+                   '--yaml_path',
+                   './config-vit/defense/ft/cifar10.yaml',
+                   '--dataset',
+                   'cifar10',
+                   '--epochs',
+                   '20',
+                   '--ratio',
+                   '0.05',
+                   '--device',
+                   'cuda:2'],
+ 'wd': 0.0005,
+ 'yaml_path': './config-vit/defense/ft/cifar10.yaml'}
+2024-11-14:14:03:47 [INFO    ] [ft.py:173] {'git hash': None,
+ 'last 3 log': 'commit f2ca5f8f4b58e07a407dd65ca217f11673aba63d\n'
+               'Author: soheilzi <soheil.zibakhsh@gmail.com>\n'
+               'Date:   Tue Nov 12 09:46:15 2024 -0800\n'
+               '\n'
+               '    added the adverserial test, added the trojan tests with '
+               'MG\n'
+               '\n'
+               'commit afd704e7564791ddc0ae120c7d2e1581bd3a4f80\n'
+               'Author: Yaman <yamanjandali@gmail.com>\n'
+               'Date:   Fri Nov 8 16:15:34 2024 -0800\n'
+               '\n'
+               '    removed added files\n'
+               '\n'
+               'commit 9bc0c704e4be5beff4562e38a15f0b4e070bb433\n'
+               'Author: Yaman <yamanjandali@gmail.com>\n'
+               'Date:   Tue Nov 5 10:24:03 2024 -0800\n'
+               '\n'
+               '    updated train_settings_generate.py file',
+ 'status': 'On branch main\n'
+           "Your branch is up to date with 'origin/main'.\n"
+           '\n'
+           'Changes not staged for commit:\n'
+           '  (use "git add <file>..." to update what will be committed)\n'
+           '  (use "git restore <file>..." to discard changes in working '
+           'directory)\n'
+           '\tmodified:   attack/trojannn.py\n'
+           '\tmodified:   config/attack/badnet/default.yaml\n'
+           '\tmodified:   config/attack/trojannn/vit_b_16.yaml\n'
+           '\tmodified:   config/attack/wanet/default.yaml\n'
+           '\tmodified:   testing_adverserial/adverserial_test.ipynb\n'
+           '\n'
+           'Untracked files:\n'
+           '  (use "git add <file>..." to include in what will be committed)\n'
+           '\tattackOut.txt\n'
+           '\tconfig-vit/\n'
+           '\trecord/badnet_0_1_ViT/\n'
+           '\trecord/blended_0_1_ViT/\n'
+           '\trecord/wanet_0_1_ViT/\n'
+           '\tresource/clean_model/\n'
+           '\trun_attacks.sh\n'
+           '\trun_attacks2.sh\n'
+           '\trun_defenses.sh\n'
+           '\ttesting_adverserial/adverserial_test2.ipynb\n'
+           '\n'
+           'no changes added to commit (use "git add" and/or "git commit -a")'}
+2024-11-14:14:03:50 [INFO    ] [bd_dataset_v2.py:133] save file format is .png
+2024-11-14:14:03:50 [INFO    ] [trainer_cls.py:972] Do NOT set the settings/parameters attr manually after you start training!
+You may break the relationship between them.
+2024-11-14:14:03:50 [INFO    ] [trainer_cls.py:1030] ('epoch_now:0, '
+ 'batch_now:0self.amp:True,self.criterion:CrossEntropyLoss(),self.optimizer:AdamW '
+ '(\n'
+ 'Parameter Group 0\n'
+ '    amsgrad: False\n'
+ '    betas: (0.9, 0.999)\n'
+ '    capturable: False\n'
+ '    differentiable: False\n'
+ '    eps: 1e-08\n'
+ '    foreach: None\n'
+ '    fused: None\n'
+ '    initial_lr: 0.0001\n'
+ '    lr: 0.0001\n'
+ '    maximize: False\n'
+ '    weight_decay: 0.01\n'
+ "),self.scheduler:{'T_max': 100, 'eta_min': 0, 'base_lrs': [0.0001], "
+ "'last_epoch': 0, 'verbose': False, '_step_count': 1, "
+ "'_get_lr_called_within_step': False, '_last_lr': "
+ "[0.0001]},self.scaler:{'scale': 65536.0, 'growth_factor': 2.0, "
+ "'backoff_factor': 0.5, 'growth_interval': 2000, '_growth_tracker': 0})")
+2024-11-14:14:03:58 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 8.257955074310303 s
+2024-11-14:14:04:44 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 0.36263919338374073,
+ 'clean_test_loss_avg_over_batch': 0.12513641117117072,
+ 'epoch': 0,
+ 'test_acc': 0.9611,
+ 'test_asr': 0.8954444444444445,
+ 'test_ra': 0.09988888888888889,
+ 'train_acc': 0.9504,
+ 'train_epoch_loss_avg_over_batch': 0.18016222403384746}
+2024-11-14:14:04:50 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.828301191329956 s
+2024-11-14:14:05:36 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 1.255461120269668,
+ 'clean_test_loss_avg_over_batch': 0.16870867786339566,
+ 'epoch': 1,
+ 'test_acc': 0.9493,
+ 'test_asr': 0.6942222222222222,
+ 'test_ra': 0.2866666666666667,
+ 'train_acc': 0.9796,
+ 'train_epoch_loss_avg_over_batch': 0.06859808955341577}
+2024-11-14:14:05:42 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.872452974319458 s
+2024-11-14:14:06:29 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 2.1485289133770364,
+ 'clean_test_loss_avg_over_batch': 0.1874892529618891,
+ 'epoch': 2,
+ 'test_acc': 0.9439,
+ 'test_asr': 0.5332222222222223,
+ 'test_ra': 0.41455555555555557,
+ 'train_acc': 0.982,
+ 'train_epoch_loss_avg_over_batch': 0.057967209815979005}
+2024-11-14:14:06:35 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.8504557609558105 s
+2024-11-14:14:07:21 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 2.2133895746419125,
+ 'clean_test_loss_avg_over_batch': 0.20976263345985474,
+ 'epoch': 3,
+ 'test_acc': 0.9368,
+ 'test_asr': 0.505,
+ 'test_ra': 0.4027777777777778,
+ 'train_acc': 0.98,
+ 'train_epoch_loss_avg_over_batch': 0.06779517941176891}
+2024-11-14:14:07:27 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.829879522323608 s
+2024-11-14:14:08:13 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 1.2722369256153914,
+ 'clean_test_loss_avg_over_batch': 0.16512550795568695,
+ 'epoch': 4,
+ 'test_acc': 0.952,
+ 'test_asr': 0.6485555555555556,
+ 'test_ra': 0.32766666666666666,
+ 'train_acc': 0.9788,
+ 'train_epoch_loss_avg_over_batch': 0.06476803822442889}
+2024-11-14:14:08:19 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.843757629394531 s
+2024-11-14:14:09:05 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 2.327008563028255,
+ 'clean_test_loss_avg_over_batch': 0.17871677917958814,
+ 'epoch': 5,
+ 'test_acc': 0.9476,
+ 'test_asr': 0.5046666666666667,
+ 'test_ra': 0.44755555555555554,
+ 'train_acc': 0.982,
+ 'train_epoch_loss_avg_over_batch': 0.05797840859740973}
+2024-11-14:14:09:11 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.830571413040161 s
+2024-11-14:14:09:57 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 2.069501044045032,
+ 'clean_test_loss_avg_over_batch': 0.21302377479740336,
+ 'epoch': 6,
+ 'test_acc': 0.9433,
+ 'test_asr': 0.5011111111111111,
+ 'test_ra': 0.441,
+ 'train_acc': 0.986,
+ 'train_epoch_loss_avg_over_batch': 0.04120864169672132}
+2024-11-14:14:10:03 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.846949338912964 s
+2024-11-14:14:10:49 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 2.4245824881002935,
+ 'clean_test_loss_avg_over_batch': 0.19555661503131253,
+ 'epoch': 7,
+ 'test_acc': 0.9494,
+ 'test_asr': 0.508,
+ 'test_ra': 0.4458888888888889,
+ 'train_acc': 0.9948,
+ 'train_epoch_loss_avg_over_batch': 0.020417091576382516}
+2024-11-14:14:10:55 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.836521148681641 s
+2024-11-14:14:11:42 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 2.7228338953474878,
+ 'clean_test_loss_avg_over_batch': 0.20975950025493587,
+ 'epoch': 8,
+ 'test_acc': 0.944,
+ 'test_asr': 0.46855555555555556,
+ 'test_ra': 0.4776666666666667,
+ 'train_acc': 0.9964,
+ 'train_epoch_loss_avg_over_batch': 0.011922655237140135}
+2024-11-14:14:11:48 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.835216045379639 s
+2024-11-14:14:12:34 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 2.1286394931900667,
+ 'clean_test_loss_avg_over_batch': 0.23299124940663954,
+ 'epoch': 9,
+ 'test_acc': 0.9382,
+ 'test_asr': 0.5471111111111111,
+ 'test_ra': 0.414,
+ 'train_acc': 0.9944,
+ 'train_epoch_loss_avg_over_batch': 0.015034275996731595}
+2024-11-14:14:12:40 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.85167384147644 s
+2024-11-14:14:13:26 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 2.62242788999853,
+ 'clean_test_loss_avg_over_batch': 0.23774707279627835,
+ 'epoch': 10,
+ 'test_acc': 0.9412,
+ 'test_asr': 0.4716666666666667,
+ 'test_ra': 0.47455555555555556,
+ 'train_acc': 0.9956,
+ 'train_epoch_loss_avg_over_batch': 0.020316212670877576}
+2024-11-14:14:13:32 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.835872411727905 s
+2024-11-14:14:14:19 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 3.1811746476401743,
+ 'clean_test_loss_avg_over_batch': 0.23633976926720596,
+ 'epoch': 11,
+ 'test_acc': 0.9388,
+ 'test_asr': 0.40655555555555556,
+ 'test_ra': 0.5261111111111111,
+ 'train_acc': 0.9888,
+ 'train_epoch_loss_avg_over_batch': 0.034975252998992803}
+2024-11-14:14:14:25 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.8408191204071045 s
+2024-11-14:14:15:11 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 2.1398980600733153,
+ 'clean_test_loss_avg_over_batch': 0.2388261480704893,
+ 'epoch': 12,
+ 'test_acc': 0.9353,
+ 'test_asr': 0.5194444444444445,
+ 'test_ra': 0.43366666666666664,
+ 'train_acc': 0.9908,
+ 'train_epoch_loss_avg_over_batch': 0.03318634643219411}
+2024-11-14:14:15:17 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.855489015579224 s
+2024-11-14:14:16:03 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 4.253341426312084,
+ 'clean_test_loss_avg_over_batch': 0.19877629774280742,
+ 'epoch': 13,
+ 'test_acc': 0.945,
+ 'test_asr': 0.2548888888888889,
+ 'test_ra': 0.6377777777777778,
+ 'train_acc': 0.9896,
+ 'train_epoch_loss_avg_over_batch': 0.03317054545041174}
+2024-11-14:14:16:09 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.847599983215332 s
+2024-11-14:14:16:55 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 4.465564166995841,
+ 'clean_test_loss_avg_over_batch': 0.28637100991946235,
+ 'epoch': 14,
+ 'test_acc': 0.9316,
+ 'test_asr': 0.22044444444444444,
+ 'test_ra': 0.6161111111111112,
+ 'train_acc': 0.9952,
+ 'train_epoch_loss_avg_over_batch': 0.016592682537157087}
+2024-11-14:14:17:02 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.84763240814209 s
+2024-11-14:14:17:48 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 3.8189962682589678,
+ 'clean_test_loss_avg_over_batch': 0.26001954587954507,
+ 'epoch': 15,
+ 'test_acc': 0.9374,
+ 'test_asr': 0.2896666666666667,
+ 'test_ra': 0.5864444444444444,
+ 'train_acc': 0.994,
+ 'train_epoch_loss_avg_over_batch': 0.015219207480549812}
+2024-11-14:14:17:54 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.859862327575684 s
+2024-11-14:14:18:40 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 4.798495712414594,
+ 'clean_test_loss_avg_over_batch': 0.2194431555940758,
+ 'epoch': 16,
+ 'test_acc': 0.9416,
+ 'test_asr': 0.20533333333333334,
+ 'test_ra': 0.6847777777777778,
+ 'train_acc': 0.9932,
+ 'train_epoch_loss_avg_over_batch': 0.02287487471476197}
+2024-11-14:14:18:46 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.847961187362671 s
+2024-11-14:14:19:32 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 4.4398740211003265,
+ 'clean_test_loss_avg_over_batch': 0.2735471261453025,
+ 'epoch': 17,
+ 'test_acc': 0.9277,
+ 'test_asr': 0.24466666666666667,
+ 'test_ra': 0.6392222222222222,
+ 'train_acc': 0.9932,
+ 'train_epoch_loss_avg_over_batch': 0.026351774763315915}
+2024-11-14:14:19:38 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.849741458892822 s
+2024-11-14:14:20:25 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 4.065719980589101,
+ 'clean_test_loss_avg_over_batch': 0.2139820025031325,
+ 'epoch': 18,
+ 'test_acc': 0.9424,
+ 'test_asr': 0.24522222222222223,
+ 'test_ra': 0.6483333333333333,
+ 'train_acc': 0.9924,
+ 'train_epoch_loss_avg_over_batch': 0.02631191451800987}
+2024-11-14:14:20:31 [INFO    ] [trainer_cls.py:1489] one epoch training part done, use time = 5.844858407974243 s
+2024-11-14:14:21:17 [INFO    ] [trainer_cls.py:65] {'batch': 20,
+ 'bd_test_loss_avg_over_batch': 4.698508524558913,
+ 'clean_test_loss_avg_over_batch': 0.19863448529268463,
+ 'epoch': 19,
+ 'test_acc': 0.9439,
+ 'test_asr': 0.177,
+ 'test_ra': 0.6867777777777778,
+ 'train_acc': 0.9952,
+ 'train_epoch_loss_avg_over_batch': 0.016844762966502457}
+2024-11-14:14:21:17 [INFO    ] [save_load_attack.py:176] saving...

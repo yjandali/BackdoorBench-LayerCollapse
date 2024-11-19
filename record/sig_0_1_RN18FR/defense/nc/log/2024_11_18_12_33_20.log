@@ -1,0 +1,169 @@
+2024-11-18:12:33:20 [INFO    ] [nc.py:578] {'EPSILON': 1e-07,
+ 'amp': True,
+ 'atk_succ_threshold': 98.0,
+ 'batch_size': 256,
+ 'checkpoint_load': None,
+ 'checkpoint_save': 'record/sig_0_1_RN18FR/defense/nc/checkpoint/',
+ 'cleaning_ratio': 0.05,
+ 'client_optimizer': 'sgd',
+ 'cost_multiplier': 2,
+ 'dataset': 'cifar10',
+ 'dataset_path': './data/cifar10',
+ 'device': 'cuda:0',
+ 'early_stop': True,
+ 'early_stop_patience': 25,
+ 'early_stop_threshold': 0.99,
+ 'epochs': 20,
+ 'frequency_save': 0,
+ 'img_size': (32, 32, 3),
+ 'index': None,
+ 'init_cost': 0.001,
+ 'input_channel': 3,
+ 'input_height': 32,
+ 'input_width': 32,
+ 'log': 'record/sig_0_1_RN18FR/defense/nc/log/',
+ 'lr': 0.01,
+ 'lr_scheduler': 'CosineAnnealingLR',
+ 'mask_lr': 0.1,
+ 'model': 'preactresnet18',
+ 'n_times_test': 1,
+ 'nc_epoch': 80,
+ 'non_blocking': True,
+ 'num_classes': 10,
+ 'num_workers': 4,
+ 'patience': 5,
+ 'pin_memory': True,
+ 'prefetch': False,
+ 'random_seed': 0,
+ 'ratio': 0.05,
+ 'result_file': 'sig_0_1_RN18FR',
+ 'save_path': 'record/sig_0_1_RN18FR/defense/nc/',
+ 'sgd_momentum': 0.9,
+ 'terminal_info': ['./defense/nc.py',
+                   '--result_file',
+                   'sig_0_1_RN18FR',
+                   '--yaml_path',
+                   './config/defense/nc/cifar10.yaml',
+                   '--dataset',
+                   'cifar10',
+                   '--epochs',
+                   '20',
+                   '--ratio',
+                   '0.05',
+                   '--device',
+                   'cuda:0',
+                   '--model',
+                   'preactresnet18'],
+ 'to_file': True,
+ 'unlearning_ratio': 0.2,
+ 'use_norm': 1,
+ 'wd': 0.0005,
+ 'yaml_path': './config/defense/nc/cifar10.yaml'}
+2024-11-18:12:33:20 [INFO    ] [nc.py:581] {'git hash': None,
+ 'last 3 log': 'commit f2ca5f8f4b58e07a407dd65ca217f11673aba63d\n'
+               'Author: soheilzi <soheil.zibakhsh@gmail.com>\n'
+               'Date:   Tue Nov 12 09:46:15 2024 -0800\n'
+               '\n'
+               '    added the adverserial test, added the trojan tests with '
+               'MG\n'
+               '\n'
+               'commit afd704e7564791ddc0ae120c7d2e1581bd3a4f80\n'
+               'Author: Yaman <yamanjandali@gmail.com>\n'
+               'Date:   Fri Nov 8 16:15:34 2024 -0800\n'
+               '\n'
+               '    removed added files\n'
+               '\n'
+               'commit 9bc0c704e4be5beff4562e38a15f0b4e070bb433\n'
+               'Author: Yaman <yamanjandali@gmail.com>\n'
+               'Date:   Tue Nov 5 10:24:03 2024 -0800\n'
+               '\n'
+               '    updated train_settings_generate.py file',
+ 'status': 'On branch main\n'
+           "Your branch is up to date with 'origin/main'.\n"
+           '\n'
+           'Changes not staged for commit:\n'
+           '  (use "git add <file>..." to update what will be committed)\n'
+           '  (use "git restore <file>..." to discard changes in working '
+           'directory)\n'
+           '\tmodified:   attack/trojannn.py\n'
+           '\tmodified:   config/attack/badnet/default.yaml\n'
+           '\tmodified:   config/attack/trojannn/vit_b_16.yaml\n'
+           '\tmodified:   config/attack/wanet/default.yaml\n'
+           '\tmodified:   config/defense/ft-sam/cifar10.yaml\n'
+           '\tmodified:   testing_adverserial/adverserial_test.ipynb\n'
+           '\n'
+           'Untracked files:\n'
+           '  (use "git add <file>..." to include in what will be committed)\n'
+           '\tattackOut.txt\n'
+           '\tconfig-vit/\n'
+           '\toutRN18.txt\n'
+           '\toutRN18Others.txt\n'
+           '\toutTimes.txt\n'
+           '\toutputPane.txt\n'
+           '\toutputPaneWaNet.txt\n'
+           '\trecord/badnet_0_1_RN18/\n'
+           '\trecord/badnet_0_1_ViT/\n'
+           '\trecord/badnet_0_1_ViT2/\n'
+           '\trecord/blended_0_1_RN18/\n'
+           '\trecord/blended_0_1_ViT/\n'
+           '\trecord/inputaware_0_1_RN18FR/\n'
+           '\trecord/inputaware_0_1_ViT/\n'
+           '\trecord/sig_0_1_RN18FR/\n'
+           '\trecord/sig_0_1_RN18Old/\n'
+           '\trecord/sig_0_1_ViT/\n'
+           '\trecord/sig_0_1_ViTOG/\n'
+           '\trecord/trojannn_0_1_RN18/\n'
+           '\trecord/trojannn_0_1_ViT2/\n'
+           '\trecord/wanet_0_1_RN18/\n'
+           '\trecord/wanet_0_1_ViT/\n'
+           '\tresource/clean_model/\n'
+           '\trun_attacks.sh\n'
+           '\trun_attacks2.sh\n'
+           '\trun_attacksRN18.sh\n'
+           '\trun_attacks_ViT.sh\n'
+           '\trun_defenses.sh\n'
+           '\trun_defensesRN18.sh\n'
+           '\trun_defensesRN18_all.sh\n'
+           '\trun_defenses_w_times.sh\n'
+           '\ttesting_adverserial/adverserial_test2.ipynb\n'
+           '\n'
+           'no changes added to commit (use "git add" and/or "git commit -a")'}
+2024-11-18:12:33:21 [INFO    ] [bd_dataset_v2.py:133] save file format is .png
+2024-11-18:12:33:22 [INFO    ] [nc.py:648] Test 0:
+2024-11-18:12:33:22 [INFO    ] [nc.py:659] ----------------- Analyzing label: 0 -----------------
+2024-11-18:12:34:02 [INFO    ] [nc.py:666] The regularization of mask for target label 0 is 154.50082397460938
+2024-11-18:12:34:02 [INFO    ] [nc.py:659] ----------------- Analyzing label: 1 -----------------
+2024-11-18:12:34:51 [INFO    ] [nc.py:666] The regularization of mask for target label 1 is 83.76676177978516
+2024-11-18:12:34:51 [INFO    ] [nc.py:659] ----------------- Analyzing label: 2 -----------------
+2024-11-18:12:35:28 [INFO    ] [nc.py:666] The regularization of mask for target label 2 is 69.73785400390625
+2024-11-18:12:35:28 [INFO    ] [nc.py:659] ----------------- Analyzing label: 3 -----------------
+2024-11-18:12:36:00 [INFO    ] [nc.py:666] The regularization of mask for target label 3 is 83.066162109375
+2024-11-18:12:36:00 [INFO    ] [nc.py:659] ----------------- Analyzing label: 4 -----------------
+2024-11-18:12:36:49 [INFO    ] [nc.py:666] The regularization of mask for target label 4 is 105.43775177001953
+2024-11-18:12:36:49 [INFO    ] [nc.py:659] ----------------- Analyzing label: 5 -----------------
+2024-11-18:12:37:20 [INFO    ] [nc.py:666] The regularization of mask for target label 5 is 55.942962646484375
+2024-11-18:12:37:20 [INFO    ] [nc.py:659] ----------------- Analyzing label: 6 -----------------
+2024-11-18:12:38:09 [INFO    ] [nc.py:666] The regularization of mask for target label 6 is 103.95160675048828
+2024-11-18:12:38:09 [INFO    ] [nc.py:659] ----------------- Analyzing label: 7 -----------------
+2024-11-18:12:38:58 [INFO    ] [nc.py:666] The regularization of mask for target label 7 is 84.37332153320312
+2024-11-18:12:38:58 [INFO    ] [nc.py:659] ----------------- Analyzing label: 8 -----------------
+2024-11-18:12:39:48 [INFO    ] [nc.py:666] The regularization of mask for target label 8 is 115.55995178222656
+2024-11-18:12:39:48 [INFO    ] [nc.py:659] ----------------- Analyzing label: 9 -----------------
+2024-11-18:12:40:23 [INFO    ] [nc.py:666] The regularization of mask for target label 9 is 83.97943115234375
+2024-11-18:12:40:23 [INFO    ] [nc.py:671] 10 labels found
+2024-11-18:12:40:23 [INFO    ] [nc.py:672] Norm values: tensor([154.5008,  83.7668,  69.7379,  83.0662, 105.4378,  55.9430, 103.9516,
+         84.3733, 115.5600,  83.9794], device='cuda:0')
+2024-11-18:12:40:23 [INFO    ] [nc.py:420] Flagged label list: 
+2024-11-18:12:40:23 [INFO    ] [nc.py:678] This is not a backdoor model
+2024-11-18:12:40:23 [INFO    ] [trainer_cls.py:972] Do NOT set the settings/parameters attr manually after you start training!
+You may break the relationship between them.
+2024-11-18:12:40:23 [INFO    ] [trainer_cls.py:1030] ('epoch_now:0, '
+ "batch_now:0self.amp:True,self.criterion:CrossEntropyLoss(),self.optimizer:None,self.scheduler:None,self.scaler:{'scale': "
+ "65536.0, 'growth_factor': 2.0, 'backoff_factor': 0.5, 'growth_interval': "
+ "2000, '_growth_tracker': 0})")
+2024-11-18:12:40:25 [INFO    ] [trainer_cls.py:65] {'bd_test_loss_avg_over_batch': 0.09040820663277474,
+ 'clean_test_loss_avg_over_batch': 1.3778395786881448,
+ 'test_acc': 0.8252,
+ 'test_asr': 0.9748888888888889,
+ 'test_ra': 0.023666666666666666}
+2024-11-18:12:40:25 [INFO    ] [save_load_attack.py:176] saving...

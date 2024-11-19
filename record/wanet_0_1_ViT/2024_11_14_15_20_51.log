@@ -1,0 +1,309 @@
+2024-11-14:15:20:51 [INFO    ] [prototype.py:124] {'amp': False,
+ 'attack': 'wanet',
+ 'attack_label_trans': 'all2one',
+ 'attack_target': 0,
+ 'batch_size': 128,
+ 'bd_yaml_path': './config/attack/wanet/default.yaml',
+ 'client_optimizer': 'AdamW',
+ 'cross_ratio': 2,
+ 'dataset': 'cifar10',
+ 'dataset_path': './data/cifar10',
+ 'device': 'cuda:0',
+ 'epochs': 10,
+ 'frequency_save': 0,
+ 'grid_rescale': 1,
+ 'img_size': (32, 32, 3),
+ 'input_channel': 3,
+ 'input_height': 32,
+ 'input_width': 32,
+ 'k': 4,
+ 'lr': 0.0001,
+ 'lr_scheduler': 'MultiStepLR',
+ 'model': 'vit_b_16',
+ 'non_blocking': True,
+ 'num_classes': 10,
+ 'num_workers': 4,
+ 'pin_memory': True,
+ 'pratio': 0.1,
+ 'prefetch': False,
+ 'random_crop': 5,
+ 'random_rotation': 10,
+ 'random_seed': 0,
+ 's': 0.5,
+ 'save_folder_name': 'wanet_0_1_ViT',
+ 'save_path': './record/wanet_0_1_ViT',
+ 'sgd_momentum': 0.9,
+ 'steplr_gamma': 0.1,
+ 'steplr_milestones': [100, 200, 300, 400],
+ 'terminal_info': ['./attack/wanet.py',
+                   '--save_folder_name',
+                   'wanet_0_1_ViT',
+                   '--dataset',
+                   'cifar10',
+                   '--dataset_path',
+                   './data',
+                   '--random_seed',
+                   '0',
+                   '--device',
+                   'cuda:0',
+                   '--client_optimizer',
+                   'AdamW',
+                   '--bd_yaml_path',
+                   './config/attack/wanet/default.yaml',
+                   '--epochs',
+                   '10',
+                   '--model',
+                   'vit_b_16',
+                   '--lr',
+                   '0.0001'],
+ 'wd': 0.0005,
+ 'yaml_path': './config/attack/prototype/cifar10.yaml'}
+2024-11-14:15:20:51 [DEBUG   ] [prototype.py:126] Only INFO or above level log will show in cmd. DEBUG level log only will show in log file.
+2024-11-14:15:20:51 [DEBUG   ] [prototype.py:130] {'git hash': None,
+ 'last 3 log': 'commit f2ca5f8f4b58e07a407dd65ca217f11673aba63d\n'
+               'Author: soheilzi <soheil.zibakhsh@gmail.com>\n'
+               'Date:   Tue Nov 12 09:46:15 2024 -0800\n'
+               '\n'
+               '    added the adverserial test, added the trojan tests with '
+               'MG\n'
+               '\n'
+               'commit afd704e7564791ddc0ae120c7d2e1581bd3a4f80\n'
+               'Author: Yaman <yamanjandali@gmail.com>\n'
+               'Date:   Fri Nov 8 16:15:34 2024 -0800\n'
+               '\n'
+               '    removed added files\n'
+               '\n'
+               'commit 9bc0c704e4be5beff4562e38a15f0b4e070bb433\n'
+               'Author: Yaman <yamanjandali@gmail.com>\n'
+               'Date:   Tue Nov 5 10:24:03 2024 -0800\n'
+               '\n'
+               '    updated train_settings_generate.py file',
+ 'status': 'On branch main\n'
+           "Your branch is up to date with 'origin/main'.\n"
+           '\n'
+           'Changes not staged for commit:\n'
+           '  (use "git add <file>..." to update what will be committed)\n'
+           '  (use "git restore <file>..." to discard changes in working '
+           'directory)\n'
+           '\tmodified:   attack/trojannn.py\n'
+           '\tmodified:   config/attack/badnet/default.yaml\n'
+           '\tmodified:   config/attack/trojannn/vit_b_16.yaml\n'
+           '\tmodified:   config/attack/wanet/default.yaml\n'
+           '\tmodified:   testing_adverserial/adverserial_test.ipynb\n'
+           '\n'
+           'Untracked files:\n'
+           '  (use "git add <file>..." to include in what will be committed)\n'
+           '\tattackOut.txt\n'
+           '\tconfig-vit/\n'
+           '\trecord/badnet_0_1_ViT/\n'
+           '\trecord/blended_0_1_ViT/\n'
+           '\trecord/wanet_0_1_ViT/\n'
+           '\tresource/clean_model/\n'
+           '\trun_attacks.sh\n'
+           '\trun_attacks2.sh\n'
+           '\trun_defenses.sh\n'
+           '\ttesting_adverserial/adverserial_test2.ipynb\n'
+           '\n'
+           'no changes added to commit (use "git add" and/or "git commit -a")'}
+2024-11-14:15:20:51 [INFO    ] [wanet.py:166] stage1 start
+2024-11-14:15:20:53 [DEBUG   ] [prototype.py:152] dataset_and_transform_generate done
+2024-11-14:15:20:53 [DEBUG   ] [bd_dataset_v2.py:68] Not DatasetFolder or ImageFolder, so iter through
+2024-11-14:15:20:54 [DEBUG   ] [bd_dataset_v2.py:68] Not DatasetFolder or ImageFolder, so iter through
+2024-11-14:15:20:55 [INFO    ] [wanet.py:183] Be careful, here must replace the regular train tranform with test transform.
+2024-11-14:15:20:55 [INFO    ] [wanet.py:199] stage2 start
+2024-11-14:15:20:55 [DEBUG   ] [model_trainer_generate.py:59] image_size ONLY apply for vit!!!
+If you use vit make sure you set the image size!
+2024-11-14:15:20:55 [DEBUG   ] [model_trainer_generate.py:122] All vit model use the default pretrain and resize to match the input shape!
+2024-11-14:15:20:58 [INFO    ] [wanet.py:230] Train from scratch!!!
+2024-11-14:15:20:58 [INFO    ] [wanet.py:266] Compose(
+    Normalize(mean=[0.0, 0.0, 0.0], std=[4.048582995951417, 4.11522633744856, 3.8314176245210727])
+    Normalize(mean=[-0.4914, -0.4822, -0.4465], std=[1.0, 1.0, 1.0])
+)
+2024-11-14:15:20:58 [INFO    ] [bd_dataset_v2.py:133] save file format is .png
+2024-11-14:15:20:58 [INFO    ] [bd_dataset_v2.py:133] save file format is .png
+2024-11-14:15:21:15 [INFO    ] [wanet.py:376] Epoch 1:
+2024-11-14:15:21:15 [INFO    ] [wanet.py:555]  Train:
+2024-11-14:15:34:52 [INFO    ] [trainer_cls.py:65] {'bd_test_loss_avg_over_batch': 1.7614484404174375,
+ 'clean_test_loss_avg_over_batch': 0.17453878844463372,
+ 'cross_test_loss_avg_over_batch': 0.2434963898002347,
+ 'epoch': 0,
+ 'ra_test_loss_avg_over_batch': 0.6013953878845967,
+ 'test_acc': 0.9493,
+ 'test_asr': 0.22533333333333333,
+ 'test_cross_acc': 0.9244,
+ 'test_ra': 0.7455555555555555,
+ 'train_acc': 0.83438,
+ 'train_acc_clean_only': 0.903689893143366,
+ 'train_asr_bd_only': 0.23869453924914677,
+ 'train_cross_acc_only': 0.8665742320819113,
+ 'train_epoch_loss_avg_over_batch': 0.49237187446840586,
+ 'train_ra_bd_only': 0.7977815699658704}
+2024-11-14:15:34:52 [DEBUG   ] [pyplot.py:414] Loaded backend agg version v2.2.
+2024-11-14:15:34:53 [DEBUG   ] [trainer_cls.py:72] return df with np.nan and None converted by str()
+2024-11-14:15:34:53 [INFO    ] [wanet.py:376] Epoch 2:
+2024-11-14:15:34:53 [INFO    ] [wanet.py:555]  Train:
+2024-11-14:15:48:27 [INFO    ] [trainer_cls.py:65] {'bd_test_loss_avg_over_batch': 1.0461450966311172,
+ 'clean_test_loss_avg_over_batch': 0.18018691732159145,
+ 'cross_test_loss_avg_over_batch': 0.18997049803220772,
+ 'epoch': 1,
+ 'ra_test_loss_avg_over_batch': 0.9493961384598638,
+ 'test_acc': 0.9443,
+ 'test_asr': 0.48044444444444445,
+ 'test_cross_acc': 0.94,
+ 'test_ra': 0.5098888888888888,
+ 'train_acc': 0.88252,
+ 'train_acc_clean_only': 0.9346337934105076,
+ 'train_asr_bd_only': 0.4084897610921502,
+ 'train_cross_acc_only': 0.9197952218430034,
+ 'train_epoch_loss_avg_over_batch': 0.3237996547652023,
+ 'train_ra_bd_only': 0.6623293515358362}
+2024-11-14:15:48:27 [DEBUG   ] [trainer_cls.py:72] return df with np.nan and None converted by str()
+2024-11-14:15:48:27 [INFO    ] [wanet.py:376] Epoch 3:
+2024-11-14:15:48:27 [INFO    ] [wanet.py:555]  Train:
+2024-11-14:16:02:10 [INFO    ] [trainer_cls.py:65] {'bd_test_loss_avg_over_batch': 1.087639867419928,
+ 'clean_test_loss_avg_over_batch': 0.13763245968501778,
+ 'cross_test_loss_avg_over_batch': 0.18581534120478208,
+ 'epoch': 2,
+ 'ra_test_loss_avg_over_batch': 1.0031674353169724,
+ 'test_acc': 0.9595,
+ 'test_asr': 0.497,
+ 'test_cross_acc': 0.9387,
+ 'test_ra': 0.48933333333333334,
+ 'train_acc': 0.89668,
+ 'train_acc_clean_only': 0.9415349510240427,
+ 'train_asr_bd_only': 0.47525597269624575,
+ 'train_cross_acc_only': 0.9354735494880546,
+ 'train_epoch_loss_avg_over_batch': 0.2747606593934471,
+ 'train_ra_bd_only': 0.6045221843003413}
+2024-11-14:16:02:10 [DEBUG   ] [trainer_cls.py:72] return df with np.nan and None converted by str()
+2024-11-14:16:02:10 [INFO    ] [wanet.py:376] Epoch 4:
+2024-11-14:16:02:10 [INFO    ] [wanet.py:555]  Train:
+2024-11-14:16:12:04 [INFO    ] [trainer_cls.py:65] {'bd_test_loss_avg_over_batch': 0.6423584050695661,
+ 'clean_test_loss_avg_over_batch': 0.19820033806034282,
+ 'cross_test_loss_avg_over_batch': 0.19139106024669694,
+ 'epoch': 3,
+ 'ra_test_loss_avg_over_batch': 1.4493788497548707,
+ 'test_acc': 0.9334,
+ 'test_asr': 0.7057777777777777,
+ 'test_cross_acc': 0.9394,
+ 'test_ra': 0.2887777777777778,
+ 'train_acc': 0.90658,
+ 'train_acc_clean_only': 0.9486865538735529,
+ 'train_asr_bd_only': 0.5138651877133106,
+ 'train_cross_acc_only': 0.9415529010238908,
+ 'train_epoch_loss_avg_over_batch': 0.250072833769919,
+ 'train_ra_bd_only': 0.5731655290102389}
+2024-11-14:16:12:05 [DEBUG   ] [trainer_cls.py:72] return df with np.nan and None converted by str()
+2024-11-14:16:12:05 [INFO    ] [wanet.py:376] Epoch 5:
+2024-11-14:16:12:05 [INFO    ] [wanet.py:555]  Train:
+2024-11-14:16:21:45 [INFO    ] [trainer_cls.py:65] {'bd_test_loss_avg_over_batch': 0.5619747193766312,
+ 'clean_test_loss_avg_over_batch': 0.14819863273561756,
+ 'cross_test_loss_avg_over_batch': 0.17169214228663263,
+ 'epoch': 4,
+ 'ra_test_loss_avg_over_batch': 1.656234173707559,
+ 'test_acc': 0.9523,
+ 'test_asr': 0.7468888888888889,
+ 'test_cross_acc': 0.9468,
+ 'test_ra': 0.24866666666666667,
+ 'train_acc': 0.91778,
+ 'train_acc_clean_only': 0.9545581032947462,
+ 'train_asr_bd_only': 0.5723122866894198,
+ 'train_cross_acc_only': 0.94955204778157,
+ 'train_epoch_loss_avg_over_batch': 0.2201523971755791,
+ 'train_ra_bd_only': 0.5132252559726962}
+2024-11-14:16:21:45 [DEBUG   ] [trainer_cls.py:72] return df with np.nan and None converted by str()
+2024-11-14:16:21:45 [INFO    ] [wanet.py:376] Epoch 6:
+2024-11-14:16:21:45 [INFO    ] [wanet.py:555]  Train:
+2024-11-14:16:31:25 [INFO    ] [trainer_cls.py:65] {'bd_test_loss_avg_over_batch': 0.3991972023332623,
+ 'clean_test_loss_avg_over_batch': 0.2216815333577651,
+ 'cross_test_loss_avg_over_batch': 0.24744308853073965,
+ 'epoch': 5,
+ 'ra_test_loss_avg_over_batch': 2.1791285880854434,
+ 'test_acc': 0.9246,
+ 'test_asr': 0.843,
+ 'test_cross_acc': 0.9207,
+ 'test_ra': 0.1507777777777778,
+ 'train_acc': 0.92026,
+ 'train_acc_clean_only': 0.955337266251113,
+ 'train_asr_bd_only': 0.5953498293515358,
+ 'train_cross_acc_only': 0.9482721843003413,
+ 'train_epoch_loss_avg_over_batch': 0.21276098951849792,
+ 'train_ra_bd_only': 0.4950938566552901}
+2024-11-14:16:31:25 [DEBUG   ] [trainer_cls.py:72] return df with np.nan and None converted by str()
+2024-11-14:16:31:25 [INFO    ] [wanet.py:376] Epoch 7:
+2024-11-14:16:31:25 [INFO    ] [wanet.py:555]  Train:
+2024-11-14:16:41:01 [INFO    ] [trainer_cls.py:65] {'bd_test_loss_avg_over_batch': 0.26406647789646204,
+ 'clean_test_loss_avg_over_batch': 0.24132362668272817,
+ 'cross_test_loss_avg_over_batch': 0.20994980303169805,
+ 'epoch': 6,
+ 'ra_test_loss_avg_over_batch': 2.738187890657237,
+ 'test_acc': 0.9132,
+ 'test_asr': 0.9047777777777778,
+ 'test_cross_acc': 0.9352,
+ 'test_ra': 0.09366666666666666,
+ 'train_acc': 0.92964,
+ 'train_acc_clean_only': 0.9610696794300979,
+ 'train_asr_bd_only': 0.6324658703071673,
+ 'train_cross_acc_only': 0.9577645051194539,
+ 'train_epoch_loss_avg_over_batch': 0.18818004605600902,
+ 'train_ra_bd_only': 0.4569112627986348}
+2024-11-14:16:41:01 [DEBUG   ] [trainer_cls.py:72] return df with np.nan and None converted by str()
+2024-11-14:16:41:01 [INFO    ] [wanet.py:376] Epoch 8:
+2024-11-14:16:41:01 [INFO    ] [wanet.py:555]  Train:
+2024-11-14:16:50:41 [INFO    ] [trainer_cls.py:65] {'bd_test_loss_avg_over_batch': 0.7918651196318613,
+ 'clean_test_loss_avg_over_batch': 0.14685399558017903,
+ 'cross_test_loss_avg_over_batch': 0.18378304901143797,
+ 'epoch': 7,
+ 'ra_test_loss_avg_over_batch': 1.6359493833192638,
+ 'test_acc': 0.9544,
+ 'test_asr': 0.658,
+ 'test_cross_acc': 0.94,
+ 'test_ra': 0.3342222222222222,
+ 'train_acc': 0.93582,
+ 'train_acc_clean_only': 0.9645759127337489,
+ 'train_asr_bd_only': 0.6676621160409556,
+ 'train_cross_acc_only': 0.9596843003412969,
+ 'train_epoch_loss_avg_over_batch': 0.17554541415227648,
+ 'train_ra_bd_only': 0.42235494880546076}
+2024-11-14:16:50:42 [DEBUG   ] [trainer_cls.py:72] return df with np.nan and None converted by str()
+2024-11-14:16:50:42 [INFO    ] [wanet.py:376] Epoch 9:
+2024-11-14:16:50:42 [INFO    ] [wanet.py:555]  Train:
+2024-11-14:17:00:20 [INFO    ] [trainer_cls.py:65] {'bd_test_loss_avg_over_batch': 0.435524990860845,
+ 'clean_test_loss_avg_over_batch': 0.2042352325176891,
+ 'cross_test_loss_avg_over_batch': 0.19346361513002008,
+ 'epoch': 8,
+ 'ra_test_loss_avg_over_batch': 2.4509260956670196,
+ 'test_acc': 0.9315,
+ 'test_asr': 0.8181111111111111,
+ 'test_cross_acc': 0.9412,
+ 'test_ra': 0.17933333333333334,
+ 'train_acc': 0.93972,
+ 'train_acc_clean_only': 0.9659951024042742,
+ 'train_asr_bd_only': 0.6943259385665529,
+ 'train_cross_acc_only': 0.9617107508532423,
+ 'train_epoch_loss_avg_over_batch': 0.1630389301196846,
+ 'train_ra_bd_only': 0.39334470989761094}
+2024-11-14:17:00:21 [DEBUG   ] [trainer_cls.py:72] return df with np.nan and None converted by str()
+2024-11-14:17:00:21 [INFO    ] [wanet.py:376] Epoch 10:
+2024-11-14:17:00:21 [INFO    ] [wanet.py:555]  Train:
+2024-11-14:17:09:59 [INFO    ] [trainer_cls.py:65] {'bd_test_loss_avg_over_batch': 0.3820906182829763,
+ 'clean_test_loss_avg_over_batch': 0.17155022013791,
+ 'cross_test_loss_avg_over_batch': 0.17544878028993366,
+ 'epoch': 9,
+ 'ra_test_loss_avg_over_batch': 2.8792515103246124,
+ 'test_acc': 0.9445,
+ 'test_asr': 0.8473333333333334,
+ 'test_cross_acc': 0.9468,
+ 'test_ra': 0.148,
+ 'train_acc': 0.94322,
+ 'train_acc_clean_only': 0.9679986642920748,
+ 'train_asr_bd_only': 0.7052047781569966,
+ 'train_cross_acc_only': 0.9672568259385665,
+ 'train_epoch_loss_avg_over_batch': 0.15389286402774893,
+ 'train_ra_bd_only': 0.39547781569965873}
+2024-11-14:17:09:59 [DEBUG   ] [trainer_cls.py:72] return df with np.nan and None converted by str()
+2024-11-14:17:09:59 [DEBUG   ] [trainer_cls.py:88] return df with np.nan and None converted by str()
+2024-11-14:17:09:59 [INFO    ] [bd_dataset_v2.py:133] save file format is .png
+2024-11-14:17:10:06 [INFO    ] [save_load_attack.py:141] saving...
+2024-11-14:17:10:06 [DEBUG   ] [save_load_attack.py:142] location : ./record/wanet_0_1_ViT/attack_result.pt
+2024-11-14:17:10:06 [INFO    ] [save_load_attack.py:149] Saved, folder path: ./record/wanet_0_1_ViT

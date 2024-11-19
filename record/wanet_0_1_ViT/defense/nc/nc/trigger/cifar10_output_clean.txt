@@ -1,0 +1,3 @@
+Output for cleanse:  - cifar10
+------------------------------
+Test 0:

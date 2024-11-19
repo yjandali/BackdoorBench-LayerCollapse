@@ -1,0 +1,111 @@
+2024-11-14:14:21:44 [INFO    ] [nc.py:578] {'EPSILON': 1e-07,
+ 'ExponentialLR_gamma': 0.9,
+ 'amp': True,
+ 'atk_succ_threshold': 98.0,
+ 'batch_size': 256,
+ 'checkpoint_load': None,
+ 'checkpoint_save': 'record/blended_0_1_ViT/defense/nc/checkpoint/',
+ 'cleaning_ratio': 0.05,
+ 'client_optimizer': 'AdamW',
+ 'cost_multiplier': 2,
+ 'dataset': 'cifar10',
+ 'dataset_path': './data/cifar10',
+ 'device': 'cuda:2',
+ 'early_stop': True,
+ 'early_stop_patience': 25,
+ 'early_stop_threshold': 2.0,
+ 'epochs': 20,
+ 'frequency_save': 0,
+ 'img_size': (32, 32, 3),
+ 'index': None,
+ 'init_cost': 0.001,
+ 'input_channel': 3,
+ 'input_height': 32,
+ 'input_width': 32,
+ 'log': 'record/blended_0_1_ViT/defense/nc/log/',
+ 'lr': 0.0001,
+ 'lr_scheduler': 'ExponentialLR',
+ 'mask_lr': 0.1,
+ 'model': 'vit_b_16',
+ 'n_times_test': 1,
+ 'nc_epoch': 80,
+ 'non_blocking': True,
+ 'num_classes': 10,
+ 'num_workers': 4,
+ 'patience': 5,
+ 'pin_memory': True,
+ 'prefetch': False,
+ 'random_seed': 0,
+ 'ratio': 0.05,
+ 'result_file': 'blended_0_1_ViT',
+ 'save_path': 'record/blended_0_1_ViT/defense/nc/',
+ 'sgd_momentum': 0.9,
+ 'terminal_info': ['./defense/nc.py',
+                   '--result_file',
+                   'blended_0_1_ViT',
+                   '--yaml_path',
+                   './config-vit/defense/nc/cifar10.yaml',
+                   '--dataset',
+                   'cifar10',
+                   '--epochs',
+                   '20',
+                   '--ratio',
+                   '0.05',
+                   '--device',
+                   'cuda:2'],
+ 'to_file': True,
+ 'unlearning_ratio': 0.2,
+ 'use_norm': 1,
+ 'wd': 0.0005,
+ 'yaml_path': './config-vit/defense/nc/cifar10.yaml'}
+2024-11-14:14:21:44 [INFO    ] [nc.py:581] {'git hash': None,
+ 'last 3 log': 'commit f2ca5f8f4b58e07a407dd65ca217f11673aba63d\n'
+               'Author: soheilzi <soheil.zibakhsh@gmail.com>\n'
+               'Date:   Tue Nov 12 09:46:15 2024 -0800\n'
+               '\n'
+               '    added the adverserial test, added the trojan tests with '
+               'MG\n'
+               '\n'
+               'commit afd704e7564791ddc0ae120c7d2e1581bd3a4f80\n'
+               'Author: Yaman <yamanjandali@gmail.com>\n'
+               'Date:   Fri Nov 8 16:15:34 2024 -0800\n'
+               '\n'
+               '    removed added files\n'
+               '\n'
+               'commit 9bc0c704e4be5beff4562e38a15f0b4e070bb433\n'
+               'Author: Yaman <yamanjandali@gmail.com>\n'
+               'Date:   Tue Nov 5 10:24:03 2024 -0800\n'
+               '\n'
+               '    updated train_settings_generate.py file',
+ 'status': 'On branch main\n'
+           "Your branch is up to date with 'origin/main'.\n"
+           '\n'
+           'Changes not staged for commit:\n'
+           '  (use "git add <file>..." to update what will be committed)\n'
+           '  (use "git restore <file>..." to discard changes in working '
+           'directory)\n'
+           '\tmodified:   attack/trojannn.py\n'
+           '\tmodified:   config/attack/badnet/default.yaml\n'
+           '\tmodified:   config/attack/trojannn/vit_b_16.yaml\n'
+           '\tmodified:   config/attack/wanet/default.yaml\n'
+           '\tmodified:   testing_adverserial/adverserial_test.ipynb\n'
+           '\n'
+           'Untracked files:\n'
+           '  (use "git add <file>..." to include in what will be committed)\n'
+           '\tattackOut.txt\n'
+           '\tconfig-vit/\n'
+           '\trecord/badnet_0_1_ViT/\n'
+           '\trecord/blended_0_1_ViT/\n'
+           '\trecord/wanet_0_1_ViT/\n'
+           '\tresource/clean_model/\n'
+           '\trun_attacks.sh\n'
+           '\trun_attacks2.sh\n'
+           '\trun_defenses.sh\n'
+           '\ttesting_adverserial/adverserial_test2.ipynb\n'
+           '\n'
+           'no changes added to commit (use "git add" and/or "git commit -a")'}
+2024-11-14:14:21:47 [INFO    ] [bd_dataset_v2.py:133] save file format is .png
+2024-11-14:14:21:47 [INFO    ] [nc.py:648] Test 0:
+2024-11-14:14:21:47 [INFO    ] [nc.py:659] ----------------- Analyzing label: 0 -----------------
+2024-11-14:14:41:50 [INFO    ] [nc.py:666] The regularization of mask for target label 0 is 30.279985427856445
+2024-11-14:14:41:50 [INFO    ] [nc.py:659] ----------------- Analyzing label: 1 -----------------

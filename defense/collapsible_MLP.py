@@ -112,3 +112,50 @@ class CollapsibleMlp(nn.Module):
         self.fc2.weight.data = module.linear_2.weight.data
         self.fc2.bias.data = module.linear_2.bias.data
     
+
+class CollapsiblePreActBlock(nn.Module):
+    """Pre-activation version of the BasicBlock."""
+
+    expansion = 1
+
+    def __init__(self, in_planes, planes, stride=1):
+        super(CollapsiblePreActBlock, self).__init__()
+        self.bn1 = nn.BatchNorm2d(in_planes)
+        self.conv1 = nn.Conv2d(in_planes, planes, kernel_size=3, stride=stride, padding=1, bias=False)
+        self.bn2 = nn.BatchNorm2d(planes)
+        self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=1, padding=1, bias=False)
+        self.act1 = nn.ReLU()
+        self.act2 = nn.PReLU(num_parameters=1, init=0.0)
+
+        self.ind = None
+
+        if stride != 1 or in_planes != self.expansion * planes:
+            self.shortcut = nn.Sequential(
+                nn.Conv2d(in_planes, self.expansion * planes, kernel_size=1, stride=stride, bias=False)
+            )
+
+    def forward(self, x):
+        out = self.act1(self.bn1(x))
+        shortcut = self.shortcut(out) if hasattr(self, "shortcut") else x
+        out = self.conv1(out)
+        out = self.conv2(self.act2(self.bn2(out)))
+        if self.ind is not None:
+            out += shortcut[:, self.ind, :, :]
+        else:
+            out += shortcut
+        return out
+    
+    def load_from_preactblock(self, module):
+        self.bn1.weight.data = module.bn1.weight.data
+        self.bn1.bias.data = module.bn1.bias.data
+        self.bn1.running_mean = module.bn1.running_mean
+        self.bn1.running_var = module.bn1.running_var
+        self.conv1.weight.data = module.conv1.weight.data
+        self.bn2.weight.data = module.bn2.weight.data
+        self.bn2.bias.data = module.bn2.bias.data
+        self.bn2.running_mean = module.bn2.running_mean
+        self.bn2.running_var = module.bn2.running_var
+        self.conv2.weight.data = module.conv2.weight.data
+
+    def linear_loss(self):
+        return (self.act2.weight - 1)**2
