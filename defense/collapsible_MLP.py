@@ -47,6 +47,8 @@ class CollapsibleMlp(nn.Module):
         self.fc2 = linear_layer(hidden_features, out_features, bias=bias[1])
         self.drop2 = nn.Dropout(drop_probs[1])
         self.batch_norm = batch_norm
+        self.uncollapse = False
+        self.bestPReLUWeight = 0.01
 
 
     def forward(self, x):
@@ -58,10 +60,22 @@ class CollapsibleMlp(nn.Module):
         x = self.drop2(x)
         return x
     
+    def setBestPReLUWeight(self):
+        self.bestPReLUWeight = self.act.weight.data.clone()
+    
     def linear_loss(self):
         if isinstance(self.act, nn.Identity):
             return 0
-        return (self.act.weight - 1)**2
+        if not self.uncollapse:
+            return (self.act.weight - 1)**2
+        else:
+            return (self.act.weight - self.bestPReLUWeight)**2
+        
+    def set_uncollapse(self):
+        self.uncollapse = True
+    
+    def set_collapse(self):
+        self.uncollapse = False
     
     def collapse(self, threshold=0.05):
         if isinstance(self.act, nn.Identity):

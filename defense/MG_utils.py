@@ -83,6 +83,12 @@ def get_model_linear_loss(model, fraction=1.0):
             linear_loss += module.linear_loss()
     return linear_loss
 
+def setAllBestPReLUVals(model):
+    for name, module in list(model.named_modules()):
+        if isinstance(module, CollapsibleMlp):
+            module.setBestPReLUWeight()
+
+
 def get_model_collapsible_slopes(model, fraction=1.0):
     num_mlp_layers = len(list(model.named_modules()))
     for name, module in list(model.named_modules())[::-1][:int(num_mlp_layers * fraction)]:

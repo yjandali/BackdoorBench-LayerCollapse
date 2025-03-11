@@ -35,7 +35,7 @@ from utils.aggregate_block.dataset_and_transform_generate import get_input_shape
 from utils.save_load_attack import load_attack_result, save_defense_result
 from utils.bd_dataset_v2 import prepro_cls_DatasetBD_v2
 
-from MG_utils import get_collapsible_model, collapse_model, criterion_function, get_collapsible_model_preactresnet
+from MG_utils import get_collapsible_model, collapse_model, criterion_function, get_collapsible_model_preactresnet, setAllBestPReLUVals
 
 from functools import partial
 
@@ -268,24 +268,35 @@ class ft(defense):
         #     continue_training_path = None,
         # )
 
-        self.trainer.train_with_test_each_epoch_on_mix(
-            trainloader,
-            data_clean_loader,
-            data_bd_loader,
-            args.epochs,
-            optimizer=optimizer,
-            scheduler=scheduler,
-            device=self.args.device,
-            frequency_save=args.frequency_save,
-            save_folder_path=args.save_path,
-            save_prefix=args.experiment_name,
-            amp=args.amp,
-            prefetch=args.prefetch,
-            prefetch_transform_attr_name="ori_image_transform_in_loading", # since we use the preprocess_bd_dataset
-            non_blocking=args.non_blocking,
-            # criterion=criterion,
-            criterion=partial(criterion_function, fraction=args.fraction, reg_strength=args.reg_strength),
-        )
+        for epoch in range(self.args.epochs):
+            model.uncollapse = (epoch % 2 == 1)
+            if model.uncollapse:
+                print("Uncollapsing Model...")
+            else:
+                print("Collapsing Model...")
+
+            logging.info(f"Epoch {epoch+1}/{self.args.epochs}: model.uncollapse = {model.uncollapse}")
+
+            self.trainer.train_with_test_each_epoch_on_mix(
+                trainloader,
+                data_clean_loader,
+                data_bd_loader,
+                1,  # Train for one epoch at a time
+                optimizer=optimizer,
+                scheduler=scheduler,
+                device=self.args.device,
+                frequency_save=self.args.frequency_save,
+                save_folder_path=self.args.save_path,
+                save_prefix=self.args.experiment_name,
+                amp=self.args.amp,
+                prefetch=self.args.prefetch,
+                prefetch_transform_attr_name="ori_image_transform_in_loading",
+                non_blocking=self.args.non_blocking,
+                criterion=partial(criterion_function, fraction=self.args.fraction, reg_strength=self.args.reg_strength),
+            )
+
+            setAllBestPReLUVals(model)
+
         
         result = {}
         result['model'] = model
